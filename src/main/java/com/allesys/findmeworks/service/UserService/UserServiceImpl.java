@@ -3,7 +3,6 @@ package com.allesys.findmeworks.service.UserService;
 import java.util.List;
 import java.util.UUID;
 
-import com.allesys.findmeworks.service.UserService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
