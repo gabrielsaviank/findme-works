@@ -1,4 +1,4 @@
-package com.allesys.findmeworks.service;
+package com.allesys.findmeworks.service.UserService;
 
 import java.util.List;
 import java.util.UUID;

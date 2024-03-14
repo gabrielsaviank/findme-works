@@ -1,8 +1,7 @@
 package com.allesys.findmeworks.controller;
 
 import com.allesys.findmeworks.entity.User;
-import com.allesys.findmeworks.repository.UserRepository;
-import com.allesys.findmeworks.service.UserService;
+import com.allesys.findmeworks.service.UserService.UserService;
 
 import java.util.List;
 import java.util.UUID;

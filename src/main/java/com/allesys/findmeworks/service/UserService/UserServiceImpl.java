@@ -1,4 +1,4 @@
-package com.allesys.findmeworks.service;
+package com.allesys.findmeworks.service.UserService;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    
+
     @Override
     public User createUser(User user) {
         return userRepository.save(user);
