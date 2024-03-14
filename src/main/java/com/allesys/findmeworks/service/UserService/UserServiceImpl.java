@@ -1,8 +1,9 @@
-package com.allesys.findmeworks.service;
+package com.allesys.findmeworks.service.UserService;
 
 import java.util.List;
 import java.util.UUID;
 
+import com.allesys.findmeworks.service.UserService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    
+
     @Override
     public User createUser(User user) {
         return userRepository.save(user);
