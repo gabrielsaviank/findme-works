@@ -3,6 +3,8 @@ package com.allesys.findmeworks.controller;
 import java.util.List;
 import java.util.UUID;
 
+import com.allesys.findmeworks.entity.User;
+import com.allesys.findmeworks.service.UserService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,15 +20,18 @@ import com.allesys.findmeworks.service.LocationService.LocationService;
 @RequestMapping("/api/v1/locations")
 public class LocationController {
     private final LocationService locationService;
+    private final UserService userService;
 
     @Autowired
-    public LocationController(LocationService locationService) {
+    public LocationController(LocationService locationService, UserService userService) {
         this.locationService = locationService;
+        this.userService = userService;
     }
 
-    @PostMapping
-    public Location createLocation(@RequestBody Location location) {
-        return locationService.createLocation(location);
+    @PostMapping("/create/{userId}")
+    public Location createLocation(@PathVariable("userId") UUID userId, @RequestBody Location location) {
+        User user = userService.getUserById(userId);
+        return locationService.createLocation(location, user);
     }
 
     @GetMapping
