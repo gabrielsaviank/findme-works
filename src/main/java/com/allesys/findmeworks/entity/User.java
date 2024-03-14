@@ -3,9 +3,12 @@ package com.allesys.findmeworks.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import java.util.List;
 import java.util.UUID;
+import jakarta.persistence.CascadeType;
 
 @Entity
 @Table(name = "users")
@@ -18,11 +21,14 @@ public class User {
     private String password;
     private String phone;
     private boolean isServiceProvider;
-;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Location> locations;
+
     public UUID getId() {
         return id;
     }
-    
+
     public void setId(UUID id) {
         this.id = id;
     }
@@ -65,5 +71,13 @@ public class User {
 
     public void setIsServiceProvider(boolean isServiceProvider) {
         this.isServiceProvider = isServiceProvider;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }
