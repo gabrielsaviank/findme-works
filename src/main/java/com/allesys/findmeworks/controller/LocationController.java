@@ -20,18 +20,15 @@ import com.allesys.findmeworks.service.LocationService.LocationService;
 @RequestMapping("/api/v1/locations")
 public class LocationController {
     private final LocationService locationService;
-    private final UserService userService;
 
     @Autowired
-    public LocationController(LocationService locationService, UserService userService) {
+    public LocationController(LocationService locationService) {
         this.locationService = locationService;
-        this.userService = userService;
     }
 
     @PostMapping("/create/{userId}")
     public Location createLocation(@PathVariable("userId") UUID userId, @RequestBody Location location) {
-        User user = userService.getUserById(userId);
-        return locationService.createLocation(location, user);
+        return locationService.createLocation(location, userId);
     }
 
     @GetMapping
