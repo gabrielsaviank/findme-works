@@ -22,7 +22,8 @@ public class User {
     private String phone;
     private boolean isServiceProvider;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     private List<Location> locations;
 
     public UUID getId() {

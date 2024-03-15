@@ -2,11 +2,7 @@ package com.allesys.findmeworks.entity;
 
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "locations")
@@ -19,8 +15,8 @@ public class Location {
     private String latitude;
     private String longitude;
 
-    @ManyToOne
-    private User user;
+    @Column(name = "user_id")
+    private UUID userId;
 
     public UUID getLocationId() {
         return locationId;
@@ -54,11 +50,11 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public User getUser() {
-        return user;
+    public UUID getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 }

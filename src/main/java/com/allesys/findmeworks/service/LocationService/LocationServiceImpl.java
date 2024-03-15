@@ -16,12 +16,13 @@ public class LocationServiceImpl implements LocationService {
     private final LocationRepository locationRepository;
 
     @Autowired
-    public LocationServiceImpl(LocationRepository locationRepository){
+    public LocationServiceImpl(LocationRepository locationRepository, UserRepository userRepository) {
         this.locationRepository = locationRepository;
     }
 
     @Override
-    public Location createLocation(Location location, User user) {
+    public Location createLocation(Location location, UUID userId) {
+        location.setUserId(userId);
         return this.locationRepository.save(location);
     }
 

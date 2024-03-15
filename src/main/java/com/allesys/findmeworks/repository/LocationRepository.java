@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.allesys.findmeworks.entity.Location;
 
 public interface LocationRepository extends JpaRepository<Location, UUID>{
+//    void setUserId(UUID userId);
 }
