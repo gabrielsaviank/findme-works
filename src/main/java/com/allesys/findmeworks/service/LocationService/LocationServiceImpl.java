@@ -3,6 +3,8 @@ package com.allesys.findmeworks.service.LocationService;
 import java.util.List;
 import java.util.UUID;
 
+import com.allesys.findmeworks.entity.User;
+import com.allesys.findmeworks.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +16,13 @@ public class LocationServiceImpl implements LocationService {
     private final LocationRepository locationRepository;
 
     @Autowired
-    public LocationServiceImpl(LocationRepository locationRepository){
+    public LocationServiceImpl(LocationRepository locationRepository, UserRepository userRepository) {
         this.locationRepository = locationRepository;
     }
 
     @Override
     public Location createLocation(Location location, UUID userId) {
+        location.setUserId(userId);
         return this.locationRepository.save(location);
     }
 
