@@ -20,10 +20,9 @@ public class GigController {
     }
 
     @PostMapping("/create/{userId}")
-    public Gig createGig(@PathVariable("userId") UUID userId, @RequestBody Gig gig, Location location) {
-        System.out.println("GIG" + gig);
-        return gigService.createGig(gig, userId);
-//        return gigService.createGig(gig, userId, location);
+    public Gig createGig(@PathVariable("userId") UUID userId, @RequestBody Gig gig, UUID locationId) {
+         System.out.println(locationId);
+        return gigService.createGig(gig, userId, locationId);
     }
 
     @GetMapping
