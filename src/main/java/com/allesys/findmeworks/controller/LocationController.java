@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.allesys.findmeworks.entity.Location;
 import com.allesys.findmeworks.service.LocationService.LocationService;
-
 @RestController
 @RequestMapping("/api/v1/locations")
 public class LocationController {
