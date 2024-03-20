@@ -9,4 +9,6 @@ import java.util.UUID;
 public interface GigService {
     Gig createGig(GigDTO gigRequest);
     List<Gig> getAllGigs();
+    void deleteGig(UUID gigId);
+    Gig updateGig(UUID gigId, GigDTO gigRequest);
 }

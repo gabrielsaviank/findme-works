@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/gigs")
@@ -26,5 +27,16 @@ public class GigController {
     @GetMapping
     public List<Gig> getAllGigs() {
         return gigService.getAllGigs();
+    }
+
+
+    @DeleteMapping("/delete/{gigId}")
+    public void deleteGig(@PathVariable UUID gigId) {
+        gigService.deleteGig(gigId);
+    }
+
+    @PatchMapping("/update/{gigId}")
+    public Gig updateGig(@PathVariable UUID gigId, @RequestBody GigDTO gigRequest) {
+        return gigService.updateGig(gigId, gigRequest);
     }
 }

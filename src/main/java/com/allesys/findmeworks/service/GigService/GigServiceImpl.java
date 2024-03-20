@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class GigServiceImpl implements GigService {
@@ -49,10 +50,37 @@ public class GigServiceImpl implements GigService {
         gig.setInPlace(gigRequest.isInPlace());
         gig.setHourlyRate(gigRequest.getHourlyRate());
         gig.setLocation(location);
-        return gigRepository.save(gig);
+
+        return this.gigRepository.save(gig);
     }
     @Override
     public List<Gig> getAllGigs() {
         return this.gigRepository.findAll();
+    }
+
+    @Override
+    public void deleteGig(UUID gigId) {
+        this.gigRepository.deleteById(gigId);
+    }
+
+    @Override
+    public Gig updateGig(UUID gigId, GigDTO gig){
+        Gig existingGig = this.gigRepository.findById(gigId).orElse(null);
+
+        if (existingGig == null) {
+            return null;
+        }
+
+        Location location = locationRepository.findById(gig.getLocationId())
+                .orElseThrow(() -> new IllegalArgumentException("Location not found with ID: " + gig.getLocationId()));
+
+        existingGig.setTitle(gig.getTitle());
+        existingGig.setDescription(gig.getDescription());
+        existingGig.setCategory(gig.getCategory());
+        existingGig.setInPlace(gig.isInPlace());
+        existingGig.setHourlyRate(gig.getHourlyRate());
+        existingGig.setLocation(location);
+
+        return this.gigRepository.save(existingGig);
     }
 }
