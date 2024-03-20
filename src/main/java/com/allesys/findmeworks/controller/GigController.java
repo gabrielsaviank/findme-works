@@ -1,5 +1,6 @@
 package com.allesys.findmeworks.controller;
 
+import com.allesys.findmeworks.dto.GigDTO;
 import com.allesys.findmeworks.entity.Gig;
 import com.allesys.findmeworks.entity.Location;
 import com.allesys.findmeworks.service.GigService.GigService;
@@ -19,10 +20,9 @@ public class GigController {
         this.gigService = gigService;
     }
 
-    @PostMapping("/create/{userId}")
-    public Gig createGig(@PathVariable("userId") UUID userId, @RequestBody Gig gig, UUID locationId) {
-         System.out.println(locationId);
-        return gigService.createGig(gig, userId, locationId);
+    @PostMapping("/create")
+    public Gig createGig(@RequestBody GigDTO gigRequest) {
+        return gigService.createGig(gigRequest);
     }
 
     @GetMapping
