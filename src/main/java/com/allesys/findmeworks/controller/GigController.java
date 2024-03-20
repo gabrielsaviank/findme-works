@@ -2,13 +2,11 @@ package com.allesys.findmeworks.controller;
 
 import com.allesys.findmeworks.dto.GigDTO;
 import com.allesys.findmeworks.entity.Gig;
-import com.allesys.findmeworks.entity.Location;
 import com.allesys.findmeworks.service.GigService.GigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/gigs")
