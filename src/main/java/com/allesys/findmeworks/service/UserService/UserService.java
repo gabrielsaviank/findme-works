@@ -11,4 +11,5 @@ public interface UserService {
     User getUserById(UUID id);
     User updateUser(UUID id, User user);
     void deleteUser(UUID id);
+    void removeLocationFromUser(UUID userId, UUID locationId);
 }

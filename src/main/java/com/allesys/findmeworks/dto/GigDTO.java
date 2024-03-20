@@ -5,15 +5,10 @@ import java.util.UUID;
 
 public class GigDTO {
     private UUID userId;
-
     private String title;
-
     private String description;
-
     private String category;
-
     private boolean inPlace;
-
     private BigDecimal hourlyRate;
 
     private String locationId;

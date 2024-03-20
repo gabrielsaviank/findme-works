@@ -9,9 +9,11 @@ import jakarta.persistence.Table;
 import java.util.List;
 import java.util.UUID;
 import jakarta.persistence.CascadeType;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "users")
+@DynamicUpdate
 public class User {
     @Id
     @GeneratedValue

@@ -51,4 +51,13 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(UUID id) {
         userRepository.deleteById(id);
     }
+    @Override
+    public void removeLocationFromUser(UUID userId, UUID locationId) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+            return;
+        }
+        user.getLocations().removeIf(location -> location.getLocationId().equals(locationId));
+        userRepository.save(user);
+    }
 }
