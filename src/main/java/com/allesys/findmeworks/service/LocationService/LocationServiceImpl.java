@@ -31,12 +31,6 @@ public class LocationServiceImpl implements LocationService {
         return this.locationRepository.save(location);
     }
 
-//    @Override
-//    public Location createLocation(Location location, UUID userId) {
-//        location.setUserId(userId);
-//        return this.locationRepository.save(location);
-//    }
-
     @Override
     public List<Location> getAllLocations() {
         return this.locationRepository.findAll();
