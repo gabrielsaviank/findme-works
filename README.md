@@ -2,7 +2,9 @@
 
 ## Description
 This is a simple SpringBoot api for services. Where you have users and that 
-can provide services in different locations.
+can provide services in different locations. 
+
+This project is still ongoing, so there are some parts not yet implemented.
 
 ## Technologies
 - Java 17
